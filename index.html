@@ -53,6 +53,14 @@
   ga('send', 'pageview');
 </script>
 <script>
+    let math = null;
+    window.onmessage = function (e) {
+      math = parseData(e.data);     
+    };
+
+
+
+
   MathJax.Hub.Config({
     jax: ["input/TeX", "output/SVG"],
     extensions: ["toMathML.js", "tex2jax.js", "MathMenu.js", "MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
@@ -62,7 +70,7 @@
     SVG: {useFontCache: true, useGlobalCache: false, EqnChunk: 1000000, EqnDelay: 0, font: 'STIX-Web'}
   })
 
-  const answer = document.querySelector('#answer1')
+  const answer = document.querySelector('#answer1');
   makeRichText(answer, {
     screenshot: {
       saver: ({data}) =>
@@ -85,7 +93,7 @@
     }
   })
 
-  let math = null
+//  let math = null
   MathJax.Hub.queue.Push(() => {
     math = MathJax.Hub.getAllJax('MathOutput')[0]
   })
