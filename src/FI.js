@@ -1,7 +1,7 @@
 export default {
     editor: {
         mathEditor: 'Matikkaeditori',
-        title: 'Kaavaeditorin kehitysversio',
+        title: 'Lukioplussa abitti-editori',
         description: `
 <ul>
 <li>“Lisää kaava” -napin alta löydät yleisimpiä matematiikassa, fysiikassa ja
