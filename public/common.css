@@ -8,8 +8,8 @@ footer section {background: transparent; box-shadow: none;}
 article {padding: 0 20px;background: #E0F4FE;}
 .answer {background: #fff;}
 .paragraph { margin: 10px 0; }
-footer { font-size: 15px; overflow: hidden; background: #565555; color: #fff; padding: 10px; }
-footer section { display: flex; justify-content: space-between; }
+footer { font-size: 15px; overflow: hidden; background: #565555; color: #fff; padding: 10px; display:none; }
+footer section { display: flex; justify-content: space-between; display: none;}
 footer .paragraph { }
 footer a { color: #fff; }
 pre { white-space: pre-wrap; }
