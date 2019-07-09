@@ -1,5 +1,13 @@
 @import url("common.css");
 
+html {
+  background: white;
+}
+
+body {
+  background: white;
+}
+
 .answer,
 #clipboardContent { border: 1px solid #aaa; padding: 5px; box-sizing: content-box; min-height: 100px; font-size: 17px}
 #clipboardContent {display: block; width: 100%; margin: 10px 0;}
@@ -7,7 +15,7 @@
 .rich-text-editor img[src*="data:image/png"] { margin: 4px; }
 .rich-text-editor:focus img[src*="data:image/png"],
 .rich-text-editor.rich-text-focused img[src*="data:image/png"] { box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2); }
-.answer { border: 1px solid #aaa; padding: 5px; box-sizing: content-box; min-height: 100px; font: 17px "Times New Roman"; }
+.answer { border: 1px solid #aaa; padding: 5px; box-sizing: content-box; min-height: 150px; font: 17px "Times New Roman"; }
 .rich-text-editor img[src^="data:image/svg+xml"] { vertical-align: middle; margin: 4px; padding: 3px 10px; cursor: pointer; border: 1px solid transparent; }
 .rich-text-editor.rich-text-focused img[src^="data:image/svg+xml"],
 .rich-text-editor:focus img[src^="data:image/svg+xml"] { background: #EDF9FF; border: 1px solid #E6F2F8; }
