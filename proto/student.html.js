@@ -24,8 +24,8 @@ export default function({
         window.locale = '${locale}';
         var ans_field = document.getElementById("answer1");
         var text = ans_field.innerText;
-        var latex = $('[data-js="latexField"]').val()J;
-        console.log("student.html.js",text,val,parent);
+        var latex = $('[data-js="latexField"]').val();
+        console.log("student.html.js",text,latex,parent);
         
         parent.postMessage("text:"+text+" latex:"+latex, "*");
 
