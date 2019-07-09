@@ -101,7 +101,7 @@ $(answer)
         var text = ans_field.innerText;
         var val = $('[data-js="latexField"]').val()
         // var text = html.innerText;
-        console.log("pia",text,val)
+        console.log("pia",text,val,parent)
         
         parent.postMessage("text:"+text+" latex:"+val, "*");
 
