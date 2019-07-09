@@ -78,7 +78,7 @@ $(answer)
         if (!e.hasFocus && hasEvents) {
             events.dimension1 = $('[data-js="latexField"]').val()
             // console.log("student.front.js ",events.dimension1)
-            var equationField = $('[data-js="equationField"]')
+            // var equationField = $('[data-js="equationField"]')
             // console.log("student.front.js ", equationField)
 
             // ga('send', 'event', 'mathEditor', 'close', events)
@@ -97,12 +97,13 @@ $(answer)
         // console.log("student.front.js ", ans)
 
         var ans_field = document.getElementById("answer1");
-        var html = ans_field.innerHTML;
+        // var html = ans_field.innerHTML;
+        var text = ans_field.innerText;
+        var val = $('[data-js="latexField"]').val()
         // var text = html.innerText;
-        console.log("pia",html)
+        console.log("pia",text,val)
         
-        parent.postMessage(html, "*");
-
+        parent.postMessage("text:"+text+" latex:"+val, "*");
 
 //     if (!e.altKey && !e.shiftKey && e.ctrlKey && e.keyCode === 69) {
     //         ga('send', 'event', 'mathEditor', 'open', 'shortcut')
