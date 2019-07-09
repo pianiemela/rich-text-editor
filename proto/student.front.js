@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import { makeRichText } from '../src/rich-text-editor'
+import { EACCES } from 'constants';
 
 /* global ga, makeRichText */
 const answer = document.getElementById('answer1')
@@ -40,24 +41,26 @@ const events = {
 }
 let hasEvents = false
 $tools.on('mousedown', '[data-js="expandCollapseCharacters"]', () => {
-    ga(
-        'send',
-        'event',
-        'toolbar',
-        'toggle',
-        $tools.hasClass('rich-text-editor-characters-expanded') ? 'expand' : 'collapse'
-    )
+    // ga(
+    //     'send',
+    //     'event',
+    //     'toolbar',
+    //     'toggle',
+    //     $tools.hasClass('rich-text-editor-characters-expanded') ? 'expand' : 'collapse'
+    // )
 })
 $('[data-js="mathToolbar"]').on('mousedown', 'button', e => {
     events.metric4++
     hasEvents = true
     const dataset = e.currentTarget.dataset
-    ga('send', 'event', 'toolbar', 'latex', dataset.latexcommand || dataset.command)
+    // console.log(dataset.latexcommand || dataset.command)
+    // ga('send', 'event', 'toolbar', 'latex', dataset.latexcommand || dataset.command)
 })
 $('[data-js="charactersList"]').on('mousedown', 'button', e => {
     events.metric3++
     hasEvents = true
-    ga('send', 'event', 'toolbar', 'character', e.currentTarget.innerText)
+    // ga('send', 'event', 'toolbar', 'character', e.currentTarget.innerText)
+    // console.log( e.currentTarget.innerText)
 })
 $('[data-js="latexField"]').on('input paste', () => {
     events.metric1++
@@ -66,13 +69,19 @@ $('[data-js="latexField"]').on('input paste', () => {
 $('[data-js="equationField"]').on('input', '.mq-textarea textarea', () => {
     events.metric2++
     hasEvents = true
+    // console.log( "data-js='equationField'")
+
 })
-$('[data-js="newEquation"]').on('mousedown', () => ga('send', 'event', 'mathEditor', 'open', 'button'))
+// $('[data-js="newEquation"]').on('mousedown', () => ga('send', 'event', 'mathEditor', 'open', 'button'))
 $(answer)
     .on('mathfocus', e => {
         if (!e.hasFocus && hasEvents) {
             events.dimension1 = $('[data-js="latexField"]').val()
-            ga('send', 'event', 'mathEditor', 'close', events)
+            // console.log("student.front.js ",events.dimension1)
+            var equationField = $('[data-js="equationField"]')
+            // console.log("student.front.js ", equationField)
+
+            // ga('send', 'event', 'mathEditor', 'close', events)
             hasEvents = false
             events.metric1 = 0
             events.metric2 = 0
@@ -80,8 +89,22 @@ $(answer)
             events.metric4 = 0
         }
     })
-    .on('keyup', e => {
-        if (!e.altKey && !e.shiftKey && e.ctrlKey && e.keyCode === 69) {
-            ga('send', 'event', 'mathEditor', 'open', 'shortcut')
-        }
-    })
+     .on('keyup', e => {
+        events.dimension1 = $('[data-js="latexField"]').val()
+        // console.log("student.front.js ",events.dimension1)
+
+        var ans = $('[data-js="answer"]').val()
+        // console.log("student.front.js ", ans)
+
+        var ans_field = document.getElementById("answer1");
+        var html = ans_field.innerHTML;
+        // var text = html.innerText;
+        console.log("pia",html)
+        
+        parent.postMessage(html, "*");
+
+
+//     if (!e.altKey && !e.shiftKey && e.ctrlKey && e.keyCode === 69) {
+    //         ga('send', 'event', 'mathEditor', 'open', 'shortcut')
+    //     }
+     })

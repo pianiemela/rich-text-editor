@@ -35,14 +35,14 @@ lisätä kuvia.</li></ul>`,
         toggleInstructions: 'Näytä ohjeet'
     },
     annotating: {
-        sendFeedback: 'Lähetä palautetta',
-        updated: 'Päivitetty',
-        mathEditor: 'Matikkaeditori',
-        title: 'Arvostelu',
-        backLink: '/',
-        backLinkLabel: 'Palaa kaavaeditoriin',
-        save: 'Tallenna merkinnät',
-        langLink: '/sv/bedomning',
-        langLabel: 'På svenska'
+        // sendFeedback: 'Lähetä palautetta',
+        // updated: 'Päivitetty',
+        // mathEditor: 'Matikkaeditori',
+        // title: 'Arvostelu',
+        // backLink: '/',
+        // backLinkLabel: 'Palaa kaavaeditoriin',
+        // save: 'Tallenna merkinnät',
+        // langLink: '/sv/bedomning',
+        // langLabel: 'På svenska'
     }
 }

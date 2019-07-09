@@ -5,12 +5,7 @@ export default function({
     title,
     description,
     shortcuts,
-    answerTitle,
-    updated,
-    startedAt,
-    sendFeedback,
-    langLink,
-    langLabel
+    answerTitle
 }) {
     return `
 <html>
@@ -26,7 +21,8 @@ export default function({
     <link rel="icon" href="/rich-text-editor-favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/rich-text-editor-favicon.ico" type="image/x-icon"/>
     <script>
-        window.locale = '${locale}'
+        window.locale = '${locale}';
+
     </script>
 </head>
 <body>
@@ -47,41 +43,8 @@ export default function({
         <div class="answer" id="answer1"></div>
     </section>
 </article>
-<footer>
-    <section>
-        <div class="paragraph">
-            ${updated} ${startedAt}
-        </div>
-        <div class="paragraph">
-            <a href="https://github.com/digabi/rich-text-editor">GitHub</a>
-        </div>
-        <div class="paragraph">
-            <a href="mailto:abitti-palaute@ylioppilastutkinto.fi?subject=Palaute / Math-editor">${sendFeedback}
-                (abitti-palaute@ylioppilastutkinto.fi)</a>
-        </div>
-        <div class="paragraph">
-            <a href="${langLink}">${langLabel}</a>
-        </div>
-    </section>
-</footer>
 <script src="rich-text-editor-bundle.js"></script>
 <script src="student.js"></script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-49446143-7', 'auto');
-    ga('send', 'pageview');
-</script>
 </body>
 </html>`
 }
