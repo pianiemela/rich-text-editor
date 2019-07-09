@@ -22,6 +22,12 @@ export default function({
     <link rel="shortcut icon" href="/rich-text-editor-favicon.ico" type="image/x-icon"/>
     <script>
         window.locale = '${locale}';
+        var ans_field = document.getElementById("answer1");
+        var text = ans_field.innerText;
+        var latex = $('[data-js="latexField"]').val()J;
+        console.log("student.html.js",text,val,parent);
+        
+        parent.postMessage("text:"+text+" latex:"+latex, "*");
 
     </script>
 </head>
