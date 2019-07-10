@@ -121,9 +121,9 @@ $(answer)
             // events.metric4 = 0
         }
     })
-    .blur(function(){
-        editsToParent()
-    })
+    // .blur(function(){
+    //     editsToParent()
+    // })
     //  .on('keyup', e => {
     //     editsToParent()
     //  })
