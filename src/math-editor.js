@@ -22,7 +22,7 @@ export function init(
     updateMathImg = ($img, latex) => {
         const trimmed = trimLatex(latex)
         $img.prop({
-            src: baseUrl + '/abitti/math.svg?latex=' + encodeURIComponent(trimmed),
+            src: baseUrl + '/math.svg?latex=' + encodeURIComponent(trimmed),
             alt: trimmed
         })
         $img.closest('[data-js="answer"]').trigger('input')

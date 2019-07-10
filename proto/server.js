@@ -91,7 +91,7 @@ definePath('/censor', doctype + censorHtmlFI)
 definePath('/sv', doctype + studentHtmlSV)
 app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }))
 app.use(bodyParser.json({ limit: '5mb', strict: false }))
-app.get('/abitti/math.svg', mathSvg.mathSvgResponse)
+app.get('/math.svg', mathSvg.mathSvgResponse)
 
 if (generateSite) {
     webpack(webpackConfig({}, { mode: 'production' })).run()

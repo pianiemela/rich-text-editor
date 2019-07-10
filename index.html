@@ -37,12 +37,22 @@
 <div><a download="math-demo-answer.html" id="export" href="javascript:void(0)">Export</a></div>
 <div class="result">\({}\)</div>
 <script>
-    var abitti_latex = "";
-    window.onmessage = function (e) {
-      abitti_latex = parseData(e.data);     
-    };
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-
+  ga('create', 'UA-49446143-7', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
   MathJax.Hub.Config({
     jax: ["input/TeX", "output/SVG"],
     extensions: ["toMathML.js", "tex2jax.js", "MathMenu.js", "MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
@@ -52,7 +62,7 @@
     SVG: {useFontCache: true, useGlobalCache: false, EqnChunk: 1000000, EqnDelay: 0, font: 'STIX-Web'}
   })
 
-  const answer = document.querySelector('#answer1');
+  const answer = document.querySelector('#answer1')
   makeRichText(answer, {
     screenshot: {
       saver: ({data}) =>
@@ -63,7 +73,7 @@
         }),
       limit: 10
     },
-    baseUrl: 'https://tie-lukioplus.rd.tuni.fi/abitti/',
+    baseUrl: 'https://math-demo.abitti.fi',
     updateMathImg: ($img, latex) => {
       updateMath(latex, svg => {
         $img.prop({
@@ -80,10 +90,6 @@
     math = MathJax.Hub.getAllJax('MathOutput')[0]
   })
   const updateMath = function (latex, cb) {
-
-    parent.postMessage(latex, "*");  //pia added
-    if (latex.length<1) latex = abitti_latex;
-
     MathJax.Hub.queue.Push(['Text', math, '\\displaystyle{' + latex + '}'])
     MathJax.Hub.Queue(() => {
       if ($('.result svg').length) {

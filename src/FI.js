@@ -1,7 +1,7 @@
 export default {
     editor: {
         mathEditor: 'Matikkaeditori',
-        title: 'Lukioplussa abitti-editori',
+        title: 'LukioPlussan Abitti',
         description: `
 <ul>
 <li>“Lisää kaava” -napin alta löydät yleisimpiä matematiikassa, fysiikassa ja
@@ -13,7 +13,7 @@ lisätä kuvia.</li></ul>`,
         shortcutTitle: 'Pikanäppäinvinkkejä',
         shortcuts: `<table><tbody>
 <tr><th>Liitä kuva leikepöydältä</th><td>Ctrl-V</td></tr>
-<tr><th>Kirjoita kaava</th><td>Ctrl-E</td></tr>
+<tr><th>Kirjoita kaava</th><td>Ctrl-E (tai Lisää kaava -painike)</td></tr>
 <tr><th colspan="2">Kaavassa</th></tr>
 <tr><th>Jakoviiva</th><td>/</td></tr>
 <tr><th>Kertomerkki</th><td>*</td></tr>
@@ -35,14 +35,14 @@ lisätä kuvia.</li></ul>`,
         toggleInstructions: 'Näytä ohjeet'
     },
     annotating: {
-        // sendFeedback: 'Lähetä palautetta',
-        // updated: 'Päivitetty',
-        // mathEditor: 'Matikkaeditori',
-        // title: 'Arvostelu',
-        // backLink: '/',
-        // backLinkLabel: 'Palaa kaavaeditoriin',
-        // save: 'Tallenna merkinnät',
-        // langLink: '/sv/bedomning',
-        // langLabel: 'På svenska'
+        sendFeedback: 'Lähetä palautetta',
+        updated: 'Päivitetty',
+        mathEditor: 'Matikkaeditori',
+        title: 'Arvostelu',
+        backLink: '/',
+        backLinkLabel: 'Palaa kaavaeditoriin',
+        save: 'Tallenna merkinnät',
+        langLink: '/sv/bedomning',
+        langLabel: 'På svenska'
     }
 }
