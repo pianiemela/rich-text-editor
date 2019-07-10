@@ -37,7 +37,7 @@ makeRichText(answer, {
             }),
         limit: 10
     },
-    baseUrl: ''
+    baseUrl: '/abitti/'
 })
 answer.focus()
 
