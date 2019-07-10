@@ -23,7 +23,8 @@ export default function({
     <script>
         window.locale = '${locale}';
         var ans_field = document.getElementById("answer1");
-        var text = ans_field.innerText;
+        var text = "";
+        if (ans_field!==null) text = ans_field.innerText;
         var latex = $('[data-js="latexField"]').val();
         console.log("student.html.js",text,latex,parent);
         

@@ -2,6 +2,29 @@ import $ from 'jquery'
 import { makeRichText } from '../src/rich-text-editor'
 import { EACCES } from 'constants';
 
+
+latex = ""
+
+function editsToParent(){
+    events.dimension1 = $('[data-js="latexField"]').val()
+    // console.log("student.front.js ",events.dimension1)
+
+    var ans = $('[data-js="answer"]').val()
+    console.log("student.front.js ", ans)
+
+    var ans_field = document.getElementById("answer1");
+    var text = "";
+    if (ans_field!==null) text = ans_field.innerText;
+    if (latex.length < 1) latex = $('[data-js="latexField"]').val()
+    // var text = html.innerText;
+    var msg = "text:"+text+" latex:"+latex;
+    console.log("student.front.js",msg,parent);
+    
+    parent.postMessage(msg, "*");
+}
+
+
+
 /* global ga, makeRichText */
 const answer = document.getElementById('answer1')
 makeRichText(answer, {
@@ -22,7 +45,8 @@ const trackError = (e = {}) => {
     const category = 'JavaScript error'
     const action = e.message
     const label = e.filename + ':' + e.lineno
-    ga('send', 'event', category, action, label)
+    console.log(category, action,label);
+    // ga('send', 'event', category, action, label)
 }
 
 if (window.addEventListener) {
@@ -76,36 +100,30 @@ $('[data-js="equationField"]').on('input', '.mq-textarea textarea', () => {
 $(answer)
     .on('mathfocus', e => {
         if (!e.hasFocus && hasEvents) {
-            events.dimension1 = $('[data-js="latexField"]').val()
-            // console.log("student.front.js ",events.dimension1)
+            latex = $('[data-js="latexField"]').val()
+            console.log("mathfocus: student.front.js ",latex)
+
+            var ans_field = document.getElementById("answer1");
+            var text = "";
+            if (ans_field!==null) text = ans_field.innerText;
+            var msg = "text:"+text+"\n"+"latex:"+latex;
+        
+
+            parent.postMessage(msg,"*")
             // var equationField = $('[data-js="equationField"]')
             // console.log("student.front.js ", equationField)
 
             // ga('send', 'event', 'mathEditor', 'close', events)
-            hasEvents = false
-            events.metric1 = 0
-            events.metric2 = 0
-            events.metric3 = 0
-            events.metric4 = 0
+            // hasEvents = false
+            // events.metric1 = 0
+            // events.metric2 = 0
+            // events.metric3 = 0
+            // events.metric4 = 0
         }
     })
-     .on('keyup', e => {
-        events.dimension1 = $('[data-js="latexField"]').val()
-        // console.log("student.front.js ",events.dimension1)
-
-        var ans = $('[data-js="answer"]').val()
-        // console.log("student.front.js ", ans)
-
-        var ans_field = document.getElementById("answer1");
-        // var html = ans_field.innerHTML;
-        var text = ans_field.innerText;
-        var val = $('[data-js="latexField"]').val()
-        // var text = html.innerText;
-        console.log("pia",text,val,parent)
-        
-        parent.postMessage("text:"+text+" latex:"+val, "*");
-
-//     if (!e.altKey && !e.shiftKey && e.ctrlKey && e.keyCode === 69) {
-    //         ga('send', 'event', 'mathEditor', 'open', 'shortcut')
-    //     }
-     })
+    .blur(function(){
+        editsToParent()
+    })
+    //  .on('keyup', e => {
+    //     editsToParent()
+    //  })

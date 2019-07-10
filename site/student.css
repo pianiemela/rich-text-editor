@@ -1,4 +1,4 @@
-@import url("common.css");
+@import url("abitti.css");
 
 .answer,
 #clipboardContent { border: 1px solid #aaa; padding: 5px; box-sizing: content-box; min-height: 100px; font-size: 17px}
